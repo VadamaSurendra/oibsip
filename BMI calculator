@@ -1,0 +1,35 @@
+def main():
+    try:
+        print("BMI CALCULATOR")
+        weight = float(input("Enter Your Weigt In KG: "))
+        height = float(input("Enter Your Height In CentiMeters: "))
+        if(weight ==0 or height== 0):
+            print("Donot Enter Zero value")
+        else:    
+            calculation(weight,height)
+    except ValueError:
+        print("Invalid Input Provid Positive Values")
+    except error as e:
+        print(e)
+def calculation(weight,height):
+    try:
+        height_in_meters = height/100
+        bmi = weight/(height_in_meters**2)
+        print(round(bmi,5))
+        classify = classifycatin(bmi)
+        print("In Category:-  "+classify)
+    except ZeroDivisonError:
+        print("Invalid Input Provid Positive Values")
+def classifycatin(bmi):    
+    if(bmi < 16):
+        return "You are severely underweight"
+    elif(bmi >=16 and bmi < 18.5):
+        return "You are underweight"
+    elif(bmi >=18.5 and bmi < 25):
+        return "You are healthy"
+    elif(bmi >=25 and bmi < 30):
+        return "You are overweight"
+    elif(bmi >= 30):
+        return "You are obesessed"
+if _name_ == "_main_":
+    main()
